@@ -1,1 +1,1 @@
-hugo -d ../public/
+hugo -d ./public/
