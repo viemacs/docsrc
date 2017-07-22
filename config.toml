@@ -21,6 +21,9 @@ search = true
 key = "go"
 name = "Go" 
 [[params.language_tabs]]
+key = "c++"
+name = "C++" 
+[[params.language_tabs]]
 key = "shell"
 name = "Shell" 
 [[params.language_tabs]]

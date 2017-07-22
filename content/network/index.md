@@ -7,3 +7,18 @@ draft: false
 # index of network
 
 ## header 2
+
+**inline code**
+
+```c++
+int main(){return 0;}
+```
+
+*some code in python*
+
+```python
+def foo():
+    pass
+    
+```
+
