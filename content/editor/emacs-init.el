@@ -1,3 +1,5 @@
+;; init.el
+
 ;; put autosave and backup files into ~/.emacs.d/{autosave,save}
 ; create the directories is necessary
 (make-directory "~/.emacs.d/autosave/" t)
