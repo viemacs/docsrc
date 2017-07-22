@@ -1,6 +1,6 @@
 ---
 weight: 20
-title: Errors
+title: Editor
 draft: false
 ---
 
@@ -8,6 +8,6 @@ draft: false
 
 ## Emacs
 
-[init.el](./editor/init.el)
 ### Emacs Config File
+[init.el](./editor/init.el)
 

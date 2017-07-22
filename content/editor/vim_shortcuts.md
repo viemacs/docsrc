@@ -1,12 +1,31 @@
-http://www.cnblogs.com/jikey/archive/2011/12/28/2304341.html
+---
+weight: 20
+title: Editor
+draft: false
+---
 
-一. 移动：
+## VIM Shortcuts
+
+### 退出
+- w filename: 保存正在编辑的文件filename
+- wq filename: 保存后退出正在编辑的文件filename
+- q：退出不保存。
+
+### 窗口操作
+- ctrl+w p: 在两个分割窗口之间来回切换。
+- ctrl+w j: 跳到下面的分割窗
+- ctrl+w h: 跳到左边的分割窗。
+- ctrl+w k: 跳到上面的分割窗。
+- ctrl+w l: 跳到右边的分割窗。
+
+### 移动
     h,j,k,l: 左，下，上，右。
     w: 下一个词的词首。
     e:下一个词的词尾。
     b:上一个词的词首。
     <>: v 模式选中后进行缩进。
-二. 跳转：
+
+### 跳转
     %: 可以匹配{},"",(),[]之间跳转。
     H、M、L：直接跳转到当前屏幕的顶部、中部、底部。
     #H：跳转到当前屏的第#行。
@@ -33,11 +52,12 @@ http://www.cnblogs.com/jikey/archive/2011/12/28/2304341.html
     ctrl+d: 向前翻半页。
     ctry+e: 下滚一行。
 
-三. 选择：
+### 选择
     1.V: 选择一行。
     2.^V: 矩形选择。
     3.v3w: 选择三个字符。  
-四. 编辑：
+
+### 编辑
     1. 新增：
         i: 光标前插入。
         I: 在当前行首插入。
@@ -98,16 +118,3 @@ http://www.cnblogs.com/jikey/archive/2011/12/28/2304341.html
         J：当前行和下一行合并成一行。
     8.  移动：
         n1,n2 m n3：将n1行到n2行之间的内容移至n3行下。
-
-五.退出：
-     1. w filename: 保存正在编辑的文件filename
-     2. wq filename: 保存后退出正在编辑的文件filename
-     3. q：退出不保存。
-
-六.窗口操作：
-     1. ctrl+w p: 在两个分割窗口之间来回切换。
-     2. ctrl+w j: 跳到下面的分割窗
-     3. ctrl+w h: 跳到左边的分割窗。
-     4. ctrl+w k: 跳到上面的分割窗。
-     5. ctrl+w l: 跳到右边的分割窗。
-     
