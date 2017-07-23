@@ -1,6 +1,6 @@
 baseurl = "./"
 languageCode = "en-us"
-title = "Viemacs Docs"
+title = "Viemacs Notes"
 theme = "docuapi"
 
 # Code higlighting settings
