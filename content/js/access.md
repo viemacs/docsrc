@@ -86,3 +86,23 @@ Memory management is done indirectly via breaking references.
 - *function* can only be deleted if it's a part of an object.
 - An property declared with *let* or *const* cannot be deleted from their scope.
 - Non-configurable properties cannot be *deleted*, which includes properties of built-in objects like *Math*, *Array*, *Object*, and properties created by Objects.defineProperty().
+
+
+## Array
+### Array Loop
+
+```javascript
+let arr = [];
+
+for (let i in arr) ;
+
+for (let i of arr) ;
+
+arr.forEach((e) => {});
+
+arr.map((e) => {return e});
+
+arr.every((e) => {return e});
+
+arr.some((e) => {return e});
+```
