@@ -43,6 +43,44 @@ No trailing comma, less extra parentheses, and easier to read.
 [Ref](https://reactjsnews.com/composing-components "React.Component vs React.createClass")
 
 
+## Introduction
+
+### Approaches to Create Objects
+
+```javascript
+let str = 'direct assigned';
+let newstr = new String("String instance initialization")
+let fn = new Function("arg_name", "console.log(arg_name)");
+let obj = new Object();
+```
+- Inner Object
+JS has two types of inner object:
+    - original object, eg: `Function, Object, String`
+    - run-time object / host object, eg: `window, document`
+
+```javascript
+let foo = {k:'record', v:[1,2,3]}
+let bar = new Object();
+bar.k = 'record';
+```
+- JSON Object
+JS can creates objects via JSON objects.  
+And JS can turn Object instance to JSON object.
+
+```javascript
+function Foo() { this.k = 'record'; this.v = 1234; }
+function Bar() {}
+Bar.prototype.k = 'record';
+Bar.prototype.v = 1234;
+```
+- Customized Object
+`Function` can be used to create customized object.
+    - use `this`  
+      the attributes and methods are initialized for every instance
+    - use `prototype`  
+      the attributes and methods are only references on every instance
+
+
 ## Number
 
 ### Integer
