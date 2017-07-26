@@ -1,3 +1,7 @@
+---
+weight: 20
+title: JS
+---
 ## Practice of JavaScript Performance
 
 Since JavaScript becomes a fullstack programming language, in certain cases the performance of JS is critical. Here are some practice of JS, with some understanding of JS implementation.
