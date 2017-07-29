@@ -1,7 +1,6 @@
 ---
 weight: 20
 title: SQL
-draft :false
 ---
 
 ## Declare a Variable in MySQL
@@ -33,6 +32,7 @@ Local variables needs to be declared using DECLARE before accessing it.
 
 They can be used as local variables and the input parameters inside a stored procedure:
 
+```sql
 DELIMITER //
 
 CREATE PROCEDURE sp_test(var1 INT) 
@@ -48,6 +48,8 @@ END; //
 DELIMITER ;
 
 CALL sp_test(5);
+```
+
 If the DEFAULT clause is missing, the initial value is NULL.
 
 The scope of a local variable is the BEGIN ... END block within which it is declared.
@@ -62,7 +64,10 @@ To see the current values used by a running server, use the SHOW VARIABLES state
 SHOW VARIABLES LIKE '%wait_timeout%';
 
 SELECT @@sort_buffer_size;
+
 They can be set at server startup using options on the command line or in an option file. Most of them can be changed dynamically while the server is running using SET GLOBAL or SET SESSION:
+
+```sql
 -- Syntax to Set value to a Global variable:
 SET GLOBAL sort_buffer_size=1000000;
 SET @@global.sort_buffer_size=1000000;
@@ -72,3 +77,4 @@ SET sort_buffer_size=1000000;
 SET SESSION sort_buffer_size=1000000;
 SET @@sort_buffer_size=1000000;
 SET @@local.sort_buffer_size=10000;
+```
