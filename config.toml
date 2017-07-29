@@ -32,6 +32,9 @@ name = "Python"
 [[params.language_tabs]]
 key = "javascript"
 name = "Javascript"
+[[params.language_tabs]]
+key = "sql"
+name = "SQL"
 
 # #Languages 
 # [languages]
