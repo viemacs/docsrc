@@ -22,7 +22,7 @@ key = "go"
 name = "Go" 
 [[params.language_tabs]]
 key = "c++"
-name = "C++" 
+name = "C" 
 [[params.language_tabs]]
 key = "shell"
 name = "Shell" 
