@@ -5,15 +5,31 @@ title: C
 
 ## Memory
 
-### 内存分配方式中的 栈、堆、自由存储区、全局与静态存储区、常量存储区
+```c++
+#include <string.h>
+int g_a = 0; // global, initialized
+int* g_p;    // global, uninitialized
+int main() {
+    int a;           // stack
+    char s[] = "ab"; // s: stack, "ab" constant
+    char *p1;        // static
+    char *p2 = "12"; // p2: stack, "12" constant
+    static int b = 0;// static
+    g_p = (char *)malloc(8); // heap
+    p1 = (char *)malloc(8);  // heap
+    strcpy(g_p, "12"); // "12" constant
+                       // the memory might be optimized by compiler and use the same memory as p2
+    return 0;
+}
+```
+
+### 内存分配方式中的 栈、堆-自由存储区、全局与静态存储区、常量存储区
 - 栈  
     栈是由编译器管理的变量存储区，在需要时分配，在不需要时自动释放。用户栈位于用户进程地址空间的顶部，在执行期间可以**动态地扩展和收缩**。栈中的变量有局部变量、函数参数，编译器也会用栈来实现函数调用。
 
 - 堆  
-    堆是由用户程序主动管理的内存块，编译器不做管理。堆上的内存用 new 分配，用 delete 释放。没有释放的内存在用户程序结束后由操作系统回收。堆可以*动态地扩展和收缩*。
-
-- 自由存储区  
-    自由存储区和堆相似。自由存储区的内存用 malloc 分配，用 free 释放。
+    堆是由用户程序主动管理的内存块，编译器不做管理。堆内存用 malloc/calloc/realloc 分配，用 free 释放；或用 new 分配，用 delete 释放。没有释放的内存在用户程序结束后由操作系统回收。堆可以*动态地扩展和收缩*。  
+    在 Linux 上，malloc 和 new 分配的内存都在堆上，但两种分配所执行的操作有所不同。  
 
 - 全局与静态存储区  
     全局变量和静态变量的内存存储区。在 C++ 中为一块内存区。在 C 中，静态变量和初始化的全局变量在一块内存区，未初始化的全局变量在相邻的内存区。可通过 void* 来操作未初始化变量的存储区。全局和静态变量都在程序结束时由系统进行释放。
