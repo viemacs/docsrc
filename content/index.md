@@ -1,6 +1,6 @@
 ---
 weight: 10
-title: viEmacs Listing Page
+title: viEmacs Notes
 draft: true
 ---
 
