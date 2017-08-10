@@ -79,3 +79,54 @@ JS 中有一些对应 prototype 模式的方法
 - `in` 可以遍历一个对象的所有属性，或一个实例是否含有某个属性  
     `for (let prop in record) console.log(prop);`  
     `"name" in record1 == true`
+
+### 继承对象
+
+```javascript
+function Record() { this.title = "Record" }
+function Personnel(name, dept) { this.name = name; this.dept = dept; }
+```
+对象间继承的方法。
+
+- 绑定构造函数  
+  使用 apply / call 将父对象的构造函数绑定到子对象上。子对象中需要显式地加入绑定语句。  
+  `function Personnel(name, dept) { ...; Record.apply(this, arguments); }`
+
+- prototype  
+  将子类的 prototype 指向父类的一个实例，使所有子类实例继承父类。  
+  `Personnel.prototype = new Record();`  
+  `Personnel.prototype.constructor = Personnel;`  
+  首先是将 Personnel.prototype 替换为指向 Record实例。这时 Personnel.prototype.constructor 指向了 Record 的构造函数，即 `Personnel.prototype.constructor == Record`，由 Personnel 创建的实例也是如此。所以要将 Personnel.prototype 重新指向 Personnel 的构造函数。
+
+- 继承 prototype  
+  JS 的函数对象可以将不变属性放在 prototype 中，对于只使用不变量的子类，可以直接继承父类的 prototype。  
+  `function Record() {}`  
+  `Record.prototype.title = "Record";`  
+  `Personnel.prototype = Record.prototype;`  
+  `Personnel.prototype.constructor = Personnel;`  
+  这种方法不需要创建父类的实例，效率更高一些。  
+  直接继承 prototype 有一个问题，子类和父类的 prototype 指向了同一个对象，对子类 prototype 的修改会影响父类的 prototype。  
+  `Record.prototype.constructor == Personnel;`
+
+- via 空对象  
+  利用空对象占用内存空间较小这点，通过空对象实例完成继承。
+  `let F = function() {};`  
+  `F.prototype = Record.prototype;`  
+  `Personnel.prototype = new F();`  
+  `Personnel.prototype.constructor = Personnel;`  
+
+```javascript
+// YUI extend function
+function extend(Child, Parent) {
+    let F = function() {};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.uber = Parent.prototype;
+}
+extend(Personnel, Record);
+```
+  可以对这个方式进行封装。如 YUI 库实现继承的方法。
+
+- copy  
+  就是将所有父类的属性和方法
