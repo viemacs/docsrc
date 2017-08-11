@@ -1,6 +1,6 @@
 ---
-weight: 20
 title: JS
+weight: 20
 ---
 
 ## Object-Oriented Programming of Javascript
@@ -115,6 +115,7 @@ function Personnel(name, dept) { this.name = name; this.dept = dept; }
   `Personnel.prototype = new F();`  
   `Personnel.prototype.constructor = Personnel;`  
 
+
 ```javascript
 // YUI extend function
 function extend(Child, Parent) {
@@ -129,4 +130,61 @@ extend(Personnel, Record);
   可以对这个方式进行封装。如 YUI 库实现继承的方法。
 
 - copy  
-  就是将所有父类的属性和方法
+  就是将所有父类的属性和方法在子类中复制一份。
+
+```javascript
+function Record() {}
+Record.prototype.title = "Record";
+function extend(Child, Parent) 
+    for (let i in Parent.prototype)
+        Child.prototype[i] = Parent.prototype[i];
+    Child.prototype.uber = Parent.prototype;
+}
+```
+----
+
+### 一般对象继承
+无构造函数的普通对象的继承。
+`let Record = {title: "Record"};`
+
+- 通过 object 函数
+
+```javascript
+function object(obj) {
+    function F() {}
+    F.prototype = obj;
+    return new F();
+}
+let Personnel = object(Record);
+```
+
+- 浅复制
+
+```javascript
+function extend(obj) {
+    let c = {};
+    for (let i in obj)
+        c[i] = obj[i];
+    c.uber = obj;
+    return c;
+}
+let Personnel = extend(Record);
+```
+浅复制在父对象的成员也是对象时，会把对象地址复制给子类，造成子类可以修改父类。
+
+- 深复制
+
+```javascript
+function deepCopy(Parent, Child) {
+    let Child = Child || {};
+    for (let i in Parent) {
+        if (typeof Parent[i] === "object") {
+            Child[i] = (Parent[i].constructor === Array) ? [] : {};
+            deepCopy(Parent[i], Child[i]);
+        } else {
+            Child[i] = Parent[i];
+        }
+    }
+    return Child;
+}
+```
