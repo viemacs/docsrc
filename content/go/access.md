@@ -1,6 +1,6 @@
 ---
 weight: 20
-title: GO
+title: Golang
 ---
 
 # Golang
