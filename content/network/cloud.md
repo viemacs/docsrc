@@ -25,3 +25,11 @@ weight: 20
 
     通过远程服务器来运行的应用，就属于 SaaS，也是消费者每天接触到的一层云服务。这类服务常由网页接入，商用+家用的如 Netflx, MOG, Google Apps, Box.net, Dropbox, iCloud。商用 SaaS 应用如 GoToMeeting (Citrix), WebEx (Cisco), CRM (Salesforce), ADP, SuccessFactors (Workday)。
 
+    SaaS 之前还有 Application Service Provider 的概念。SaaS 并不一定是B/S架构，重要的是让用户依赖于你在网络上提供的服务，而运营的重点也是如何持续稳定地提供服务。
+
+    除了业务服务本身外，SaaS 还需要保障几个服务：
+
+    - 服务发现，寻找可用业务服务
+    - 模块更新，保证客户端模块更新
+    - 业务服务容器，提供业务服务
+    - 离线更新，保障分布式系统的数据安全 （？？）
