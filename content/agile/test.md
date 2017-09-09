@@ -58,3 +58,10 @@ Java: JUnit, Hamcrest, Mockito
 - 响应缓慢
 - 用户界面
 - 尚未存在
+
+
+## TDD, Test Driven Developing
+
+一种增量式软件开发方法
+
+实践: If tests pass, write no codes.
